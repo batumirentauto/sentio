@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lawrence Amsel, M.D. | Columbia Forensic Psychiatry Dossier</title>
+  <style>
+    @font-face {
+      font-family: 'Prata';
+      src: url('../assets/prata-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('../assets/manrope-latin.woff2') format('woff2');
+    }
+
+    :root {
+      --racing-green: #0E2419;
+      --forest-dark: #07150E;
+      --sage-light: #F1F6F3;
+      --sage-accent: #2E7D56;
+      --sage-bright: #34D399;
+      --text-dark: #0A140F;
+      --text-muted: #4B6356;
+      --border-green: rgba(14, 36, 25, 0.12);
+      --font-serif: 'Prata', Georgia, serif;
+      --font-sans: 'Manrope', sans-serif;
+      --max-w: 1260px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: #FFF; color: var(--text-dark); font-family: var(--font-sans); }
+    body { line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+    /* Running Ticker Bar */
+    .ticker-bar {
+      background: var(--racing-green); color: #FFF;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 10px 0; overflow: hidden; white-space: nowrap; font-weight: 600;
+    }
+    .ticker-track {
+      display: inline-block; animation: ticker 25s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Header */
+    header {
+      background: #FFF; border-bottom: 2px solid var(--racing-green);
+      padding: 20px 0; position: sticky; top: 0; z-index: 100;
+    }
+    .header-grid { display: flex; justify-content: space-between; align-items: center; }
+    .brand-group { display: flex; align-items: baseline; gap: 14px; }
+    .brand-name { font-family: var(--font-serif); font-size: 26px; font-weight: 400; color: var(--racing-green); }
+    .brand-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage-accent); font-weight: 700; }
+
+    .nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .nav-links a:hover { color: var(--racing-green); }
+
+    .btn-green {
+      background: var(--racing-green); color: #FFF;
+      padding: 11px 22px; font-size: 13.5px; font-weight: 700;
+      border: 1px solid var(--racing-green); cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-green:hover { background: #07150E; color: #FFF; }
+
+    /* Hero: Swiss Monocle Grid */
+    .hero {
+      background: var(--sage-light);
+      border-bottom: 1px solid var(--border-green);
+      padding: 70px 0;
+    }
+    .hero-split {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center;
+    }
+    .meta-tag {
+      display: inline-block; background: var(--racing-green); color: #FFF;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 4px 10px; margin-bottom: 22px;
+    }
+    .hero-h1 {
+      font-family: var(--font-serif); font-size: 60px; line-height: 1.08;
+      color: var(--racing-green); margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+    .hero-lead {
+      font-size: 19px; line-height: 1.65; color: var(--text-muted);
+      margin-bottom: 34px; max-width: 580px;
+    }
+    .hero-stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      padding-top: 28px; border-top: 1px solid var(--border-green); margin-bottom: 34px;
+    }
+    .h-stat-num { font-family: var(--font-serif); font-size: 32px; color: var(--racing-green); line-height: 1; }
+    .h-stat-lbl { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+    .hero-visual {
+      position: relative;
+    }
+    .hero-img-box {
+      border: 3px solid var(--racing-green); background: #FFF;
+      padding: 12px; box-shadow: 14px 14px 0px var(--racing-green);
+    }
+    .hero-img-box img {
+      width: 100%; height: 500px; object-fit: cover; display: block;
+    }
+    .stamp {
+      position: absolute; top: -16px; right: -16px;
+      background: var(--racing-green); color: #FFF;
+      width: 90px; height: 90px; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 10px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.08em;
+      border: 2px dashed #FFF; transform: rotate(12deg);
+    }
+
+    /* Interactive Dossier Section */
+    section { padding: 90px 0; }
+    .sec-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 48px; border-bottom: 2px solid var(--racing-green); padding-bottom: 20px;
+    }
+    .sec-title { font-family: var(--font-serif); font-size: 40px; color: var(--racing-green); }
+    .sec-sub { font-size: 14px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
+
+    .dossier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .dossier-card {
+      border: 1px solid var(--border-green); background: #FFF;
+      padding: 38px; position: relative; transition: all 0.2s;
+    }
+    .dossier-card:hover {
+      border-color: var(--racing-green);
+      box-shadow: 8px 8px 0px var(--racing-green);
+    }
+    .dossier-ref {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+      color: var(--sage-accent); text-transform: uppercase; margin-bottom: 12px; display: block;
+    }
+    .dossier-card h3 {
+      font-family: var(--font-serif); font-size: 24px; color: var(--racing-green);
+      margin-bottom: 14px; line-height: 1.25;
+    }
+    .dossier-card p {
+      font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;
+    }
+    .dossier-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .dpill {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      background: var(--sage-light); color: var(--racing-green);
+      padding: 4px 10px; border: 1px solid var(--border-green);
+    }
+
+    /* TEDx / Lecture Block */
+    .lecture-section { background: var(--racing-green); color: #FFF; }
+    .lecture-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+    .lecture-img-wrap { border: 2px solid rgba(255, 255, 255, 0.2); padding: 8px; background: #000; }
+    .lecture-img-wrap img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .quote-box {
+      font-family: var(--font-serif); font-size: 26px; line-height: 1.45;
+      font-style: italic; color: #FFF; margin-bottom: 24px;
+    }
+
+    /* Retainer Box */
+    .intake-box {
+      background: var(--sage-light); border: 2px solid var(--racing-green);
+      padding: 48px; margin-top: 40px;
+    }
+    .intake-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .intake-input {
+      width: 100%; padding: 13px 14px; background: #FFF;
+      border: 1px solid var(--border-green); font-family: var(--font-sans); font-size: 14px;
+    }
+    .intake-input:focus { outline: none; border-color: var(--racing-green); }
+
+    footer {
+      border-top: 1px solid var(--border-green); padding: 40px 0;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 900px) {
+      .hero-split, .dossier-grid, .lecture-grid, .intake-form-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-h1 { font-size: 40px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ticker Bar -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      COLUMBIA UNIVERSITY FACULTY • 28+ YEARS FORENSIC TESTIMONY • 9/11 TRAUMA DIVISION FORMER CO-DIRECTOR • YALE MEDICAL DOCTORATE • DAUBERT & FRYE STANDARDS OF ADMISSIBILITY • NATIONWIDE PLAINTIFF & DEFENSE RETAINER •&nbsp;
+      COLUMBIA UNIVERSITY FACULTY • 28+ YEARS FORENSIC TESTIMONY • 9/11 TRAUMA DIVISION FORMER CO-DIRECTOR • YALE MEDICAL DOCTORATE • DAUBERT & FRYE STANDARDS OF ADMISSIBILITY • NATIONWIDE PLAINTIFF & DEFENSE RETAINER •&nbsp;
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-grid">
+      <div class="brand-group">
+        <span class="brand-name">LAWRENCE AMSEL, M.D.</span>
+        <span class="brand-sub">COLUMBIA FORENSIC DOSSIER</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#dossier">Dossier</a>
+        <a href="#scholarship">Mathematical Psychiatry</a>
+        <a href="#retainer">Counsel Intake</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-size: 12px; font-weight: 700;">
+          <a href="index.html" style="color: var(--racing-green);">EN</a> / <a href="ru.html" style="color: var(--text-muted);">RU</a>
+        </span>
+        <a href="#retainer" class="btn-green">Direct Chambers Intake →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-split">
+      <div>
+        <span class="meta-tag">Expert Witness & Judicial Advisory · New York</span>
+        <h1 class="hero-h1">Empirical psychiatry for high-stakes litigation.</h1>
+        <p class="hero-lead">
+          Dr. Lawrence Amsel unites 28+ years of clinical medicine, frontline leadership following 9/11, and mathematical decision science from Columbia University to author unshakeable expert reports.
+        </p>
+
+        <div class="hero-stats-row">
+          <div>
+            <div class="h-stat-num">28+</div>
+            <div class="h-stat-lbl">Years Experience</div>
+          </div>
+          <div>
+            <div class="h-stat-num">9/11</div>
+            <div class="h-stat-lbl">Trauma Service Lead</div>
+          </div>
+          <div>
+            <div class="h-stat-num">Yale / CU</div>
+            <div class="h-stat-lbl">Dual Ivy Degrees</div>
+          </div>
+        </div>
+
+        <a href="#retainer" class="btn-green" style="padding: 14px 28px; font-size: 15px;">Initiate Conflict Check</a>
+      </div>
+
+      <div class="hero-visual">
+        <div class="stamp">VERIFIED<br>DAUBERT</div>
+        <div class="hero-img-box">
+          <img src="../assets/real-hero-amsel.jpg" alt="Dr. Lawrence Amsel, Columbia Faculty">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dossier -->
+  <section id="dossier">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.12em; color: var(--sage-accent); text-transform: uppercase;">Practice Scope</span>
+          <h2 class="sec-title">Forensic Specialties & Retainers</h2>
+        </div>
+        <div class="sec-sub">Bipartisan Courtroom Record</div>
+      </div>
+
+      <div class="dossier-grid">
+        <div class="dossier-card">
+          <span class="dossier-ref">CASE FILE // 01</span>
+          <h3>PTSD & Extreme Psychological Harm</h3>
+          <p>Scientific quantification of trauma, complicated bereavement, and psychological disability following mass casualty events or industrial catastrophes. Rigorous malingering detection protocols.</p>
+          <div class="dossier-pills">
+            <span class="dpill">PTSD Quantification</span>
+            <span class="dpill">Malingering Analysis</span>
+            <span class="dpill">9/11 Responders</span>
+          </div>
+        </div>
+
+        <div class="dossier-card">
+          <span class="dossier-ref">CASE FILE // 02</span>
+          <h3>Psychiatric Malpractice & Suicide Liability</h3>
+          <p>Independent analysis of inpatient and outpatient standards of care, pharmacotherapy protocols, causation in completed suicides, and hospital institutional failure-to-protect claims.</p>
+          <div class="dossier-pills">
+            <span class="dpill">Inpatient Standards</span>
+            <span class="dpill">Suicidology</span>
+            <span class="dpill">Wrongful Death</span>
+          </div>
+        </div>
+
+        <div class="dossier-card">
+          <span class="dossier-ref">CASE FILE // 03</span>
+          <h3>Testamentary Capacity & Decision Theory</h3>
+          <p>Applying formal Game Theory and Behavioral Economics to assess retrospective competence in high-value estate contests, undue influence, and vulnerability to financial coercion.</p>
+          <div class="dossier-pills">
+            <span class="dpill">Undue Influence</span>
+            <span class="dpill">Will Contests</span>
+            <span class="dpill">Decision Modeling</span>
+          </div>
+        </div>
+
+        <div class="dossier-card">
+          <span class="dossier-ref">CASE FILE // 04</span>
+          <h3>Criminal Competency & Mitigation</h3>
+          <p>Comprehensive evaluations regarding trial competency, mental state at the time of the offense, and neuro-psychiatric mitigation evidence in high-stakes criminal trials.</p>
+          <div class="dossier-pills">
+            <span class="dpill">Trial Competency</span>
+            <span class="dpill">Insanity Defense</span>
+            <span class="dpill">Mitigation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lecture / TEDx Split -->
+  <section id="scholarship" class="lecture-section">
+    <div class="container lecture-grid">
+      <div class="lecture-img-wrap">
+        <img src="../assets/real-stage-amsel.jpg" alt="Dr. Lawrence Amsel TEDx Presentation">
+      </div>
+      <div>
+        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.12em; color: var(--sage-bright); text-transform: uppercase; margin-bottom: 14px; display: block;">Scholarship & Decision Science</span>
+        <div class="quote-box">
+          "Psychiatric symptoms are not random failures — they are mathematical decision anomalies under extreme stress."
+        </div>
+        <p style="font-size: 16px; color: #D1D5DB; line-height: 1.65; margin-bottom: 28px;">
+          Dr. Amsel's breakthrough work in Mathematical Psychiatry (featured in his landmark TEDx lecture) brings empirical game theory to human psychology. In legal proceedings, this academic authority gives juries unshakable confidence in the scientific objectivity of his findings.
+        </p>
+        <a href="#retainer" class="btn-green" style="background: var(--sage-bright); color: #07150E;">Inquire Regarding Retainer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Retainer Box -->
+  <section id="retainer">
+    <div class="container">
+      <div class="intake-box">
+        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.12em; color: var(--sage-accent); text-transform: uppercase;">Legal Intake</span>
+        <h2 style="font-family: var(--font-serif); font-size: 32px; color: var(--racing-green); margin: 6px 0 12px;">Submit Matter for Conflict Screening</h2>
+        <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 28px;">
+          Retaining counsel may transmit preliminary case parameters under the Attorney-Client Work Product doctrine. Direct chambers review by Dr. Amsel.
+        </p>
+
+        <form onsubmit="event.preventDefault(); alert('Dossier received by Dr. Amsel\'s chambers.');">
+          <div class="intake-form-grid">
+            <input type="text" class="intake-input" placeholder="Counsel Name & Firm *" required>
+            <input type="email" class="intake-input" placeholder="Counsel Email *" required>
+            <input type="text" class="intake-input" placeholder="Jurisdiction & Court *" required>
+            <select class="intake-input" required>
+              <option value="" disabled selected>Representation...</option>
+              <option value="plaintiff">Plaintiff Counsel</option>
+              <option value="defense">Defense Counsel</option>
+              <option value="criminal">Criminal Defense / Prosecution</option>
+            </select>
+          </div>
+          <textarea rows="3" class="intake-input" style="margin-bottom: 20px;" placeholder="Brief synopsis of psychiatric questions and discovery record status..."></textarea>
+          <button type="submit" class="btn-green" style="width: 100%; padding: 15px; justify-content: center; font-size: 15px;">
+            Submit to Dr. Amsel for Conflict Check →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-flex">
+      <div><strong>Lawrence Amsel, M.D., M.P.H.</strong> — Columbia Faculty Chambers: 245 W. 107th St., New York, NY</div>
+      <div>Direct: (917) 576-8172 · lamsel01@gmail.com</div>
+    </div>
+  </footer>
+
+</body>
+</html>

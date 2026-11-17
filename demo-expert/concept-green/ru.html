@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лоуренс Амсэль, M.D. | Судебное психиатрическое досье Колумбийского университета</title>
+  <style>
+    @font-face {
+      font-family: 'Prata';
+      src: url('../assets/prata-cyrillic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('../assets/manrope-cyrillic.woff2') format('woff2');
+    }
+
+    :root {
+      --racing-green: #0E2419;
+      --sage-light: #F1F6F3;
+      --sage-accent: #2E7D56;
+      --sage-bright: #34D399;
+      --text-dark: #0A140F;
+      --text-muted: #4B6356;
+      --border-green: rgba(14, 36, 25, 0.12);
+      --font-serif: 'Prata', Georgia, serif;
+      --font-sans: 'Manrope', sans-serif;
+      --max-w: 1260px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: #FFF; color: var(--text-dark); font-family: var(--font-sans); }
+    body { line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+    .ticker-bar {
+      background: var(--racing-green); color: #FFF;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 10px 0; overflow: hidden; white-space: nowrap; font-weight: 600;
+    }
+    .ticker-track {
+      display: inline-block; animation: ticker 25s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    header {
+      background: #FFF; border-bottom: 2px solid var(--racing-green);
+      padding: 20px 0; position: sticky; top: 0; z-index: 100;
+    }
+    .header-grid { display: flex; justify-content: space-between; align-items: center; }
+    .brand-group { display: flex; align-items: baseline; gap: 14px; }
+    .brand-name { font-family: var(--font-serif); font-size: 26px; font-weight: 400; color: var(--racing-green); }
+    .brand-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage-accent); font-weight: 700; }
+
+    .nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .nav-links a:hover { color: var(--racing-green); }
+
+    .btn-green {
+      background: var(--racing-green); color: #FFF;
+      padding: 11px 22px; font-size: 13.5px; font-weight: 700;
+      border: 1px solid var(--racing-green); cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-green:hover { background: #07150E; color: #FFF; }
+
+    .hero {
+      background: var(--sage-light);
+      border-bottom: 1px solid var(--border-green);
+      padding: 70px 0;
+    }
+    .hero-split {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center;
+    }
+    .meta-tag {
+      display: inline-block; background: var(--racing-green); color: #FFF;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 4px 10px; margin-bottom: 22px;
+    }
+    .hero-h1 {
+      font-family: var(--font-serif); font-size: 56px; line-height: 1.1;
+      color: var(--racing-green); margin-bottom: 24px; letter-spacing: -0.015em;
+    }
+    .hero-lead {
+      font-size: 18.5px; line-height: 1.65; color: var(--text-muted);
+      margin-bottom: 34px; max-width: 580px;
+    }
+    .hero-stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      padding-top: 28px; border-top: 1px solid var(--border-green); margin-bottom: 34px;
+    }
+    .h-stat-num { font-family: var(--font-serif); font-size: 32px; color: var(--racing-green); line-height: 1; }
+    .h-stat-lbl { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
+
+    .hero-visual { position: relative; }
+    .hero-img-box {
+      border: 3px solid var(--racing-green); background: #FFF;
+      padding: 12px; box-shadow: 14px 14px 0px var(--racing-green);
+    }
+    .hero-img-box img {
+      width: 100%; height: 500px; object-fit: cover; display: block;
+    }
+    .stamp {
+      position: absolute; top: -16px; right: -16px;
+      background: var(--racing-green); color: #FFF;
+      width: 90px; height: 90px; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 10px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.08em;
+      border: 2px dashed #FFF; transform: rotate(12deg); text-align: center;
+    }
+
+    section { padding: 90px 0; }
+    .sec-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 48px; border-bottom: 2px solid var(--racing-green); padding-bottom: 20px;
+    }
+    .sec-title { font-family: var(--font-serif); font-size: 40px; color: var(--racing-green); }
+    .sec-sub { font-size: 14px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
+
+    .dossier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .dossier-card {
+      border: 1px solid var(--border-green); background: #FFF;
+      padding: 38px; position: relative; transition: all 0.2s;
+    }
+    .dossier-card:hover {
+      border-color: var(--racing-green);
+      box-shadow: 8px 8px 0px var(--racing-green);
+    }
+    .dossier-ref {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+      color: var(--sage-accent); text-transform: uppercase; margin-bottom: 12px; display: block;
+    }
+    .dossier-card h3 {
+      font-family: var(--font-serif); font-size: 24px; color: var(--racing-green);
+      margin-bottom: 14px; line-height: 1.25;
+    }
+    .dossier-card p {
+      font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;
+    }
+    .dossier-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .dpill {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      background: var(--sage-light); color: var(--racing-green);
+      padding: 4px 10px; border: 1px solid var(--border-green);
+    }
+
+    .lecture-section { background: var(--racing-green); color: #FFF; }
+    .lecture-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+    .lecture-img-wrap { border: 2px solid rgba(255, 255, 255, 0.2); padding: 8px; background: #000; }
+    .lecture-img-wrap img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .quote-box {
+      font-family: var(--font-serif); font-size: 26px; line-height: 1.45;
+      font-style: italic; color: #FFF; margin-bottom: 24px;
+    }
+
+    .intake-box {
+      background: var(--sage-light); border: 2px solid var(--racing-green);
+      padding: 48px; margin-top: 40px;
+    }
+    .intake-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .intake-input {
+      width: 100%; padding: 13px 14px; background: #FFF;
+      border: 1px solid var(--border-green); font-family: var(--font-sans); font-size: 14px;
+    }
+    .intake-input:focus { outline: none; border-color: var(--racing-green); }
+
+    footer {
+      border-top: 1px solid var(--border-green); padding: 40px 0;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 900px) {
+      .hero-split, .dossier-grid, .lecture-grid, .intake-form-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-h1 { font-size: 38px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      ПРОФЕССОР КОЛУМБИЙСКОГО УНИВЕРСИТЕТА • 28+ ЛЕТ СУДЕБНОЙ ПРАКТИКИ • ЭКС-РУКОВОДИТЕЛЬ СЛУЖБЫ ТРАВМЫ 11 СЕНТЯБРЯ • ДОКТОР МЕДИЦИНЫ (ЙЕЛЬ) • СТАНДАРТЫ ДОПУСТИМОСТИ DAUBERT & FRYE •&nbsp;
+      ПРОФЕССОР КОЛУМБИЙСКОГО УНИВЕРСИТЕТА • 28+ ЛЕТ СУДЕБНОЙ ПРАКТИКИ • ЭКС-РУКОВОДИТЕЛЬ СЛУЖБЫ ТРАВМЫ 11 СЕНТЯБРЯ • ДОКТОР МЕДИЦИНЫ (ЙЕЛЬ) • СТАНДАРТЫ ДОПУСТИМОСТИ DAUBERT & FRYE •&nbsp;
+    </div>
+  </div>
+
+  <header>
+    <div class="container header-grid">
+      <div class="brand-group">
+        <span class="brand-name">Д-Р ЛОУРЕНС АМСЭЛЬ</span>
+        <span class="brand-sub">СУДЕБНОЕ ДОСЬЕ КОЛУМБИИ</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#dossier">Досье</a>
+        <a href="#scholarship">Математическая психиатрия</a>
+        <a href="#retainer">Запрос адвоката</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-size: 12px; font-weight: 700;">
+          <a href="index.html" style="color: var(--text-muted);">EN</a> / <a href="ru.html" style="color: var(--racing-green);">RU</a>
+        </span>
+        <a href="#retainer" class="btn-green">Направить материалы дела →</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-split">
+      <div>
+        <span class="meta-tag">Судебный эксперт и советник судов США · Нью-Йорк</span>
+        <h1 class="hero-h1">Доказательная психиатрия для судебных процессов особой важности.</h1>
+        <p class="hero-lead">
+          Д-р Лоуренс Амсэль объединяет 28+ лет клинической медицины, опыт спасения жертв и спасателей 11 сентября и математическую теорию решений Колумбийского университета для подготовки несокрушимых экспертных заключений.
+        </p>
+
+        <div class="hero-stats-row">
+          <div>
+            <div class="h-stat-num">28+</div>
+            <div class="h-stat-lbl">Лет в судах</div>
+          </div>
+          <div>
+            <div class="h-stat-num">9/11</div>
+            <div class="h-stat-lbl">Травма-служба</div>
+          </div>
+          <div>
+            <div class="h-stat-num">Yale / CU</div>
+            <div class="h-stat-lbl">Лига Плюща</div>
+          </div>
+        </div>
+
+        <a href="#retainer" class="btn-green" style="padding: 14px 28px; font-size: 15px;">Проверить конфликт интересов</a>
+      </div>
+
+      <div class="hero-visual">
+        <div class="stamp">СТАНДАРТ<br>DAUBERT</div>
+        <div class="hero-img-box">
+          <img src="../assets/real-hero-amsel.jpg" alt="Д-р Лоуренс Амсэль, Колумбия">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dossier">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--sage-accent); text-transform: uppercase;">Судебный реестр</span>
+          <h2 class="sec-title">Специализированные направления</h2>
+        </div>
+        <div class="sec-sub">Равный баланс защиты и истцов</div>
+      </div>
+
+      <div class="dossier-grid">
+        <div class="dossier-card">
+          <span class="dossier-ref">ДЕЛО // 01</span>
+          <h3>ПТСР и катастрофический вред здоровью</h3>
+          <p>Научная фиксация тяжелой психической травмы, осложненного горя и утраты трудоспособности после терактов, техногенных катастроф или насилия. Протоколы выявления симуляции.</p>
+          <div class="dossier-pills">
+            <span class="dpill">Оценка ПТСР</span>
+            <span class="dpill">Выявление симуляции</span>
+            <span class="dpill">Спасатели 9/11</span>
+          </div>
+        </div>
+
+        <div class="dossier-card">
+          <span class="dossier-ref">ДЕЛО // 02</span>
+          <h3>Врачебные ошибки клиник и суицидология</h3>
+          <p>Экспертиза соответствия стационарных протоколов стандартам доказательной медицины, дефекты фармакотерапии и причинная связь при суицидах пациентов.</p>
+          <div class="dossier-pills">
+            <span class="dpill">Стандарты клиник</span>
+            <span class="dpill">Суицидология</span>
+            <span class="dpill">Врачебная халатность</span>
+          </div>
+        </div>
+
+        <div class="dossier-card">
+          <span class="dossier-ref">ДЕЛО // 03</span>
+          <h3>Завещательная дееспособность и давление</h3>
+          <p>Применение математической теории игр и поведенческой экономики к ретроспективной оценке воли наследодателя и уязвимости к неправомерному давлению (undue influence).</p>
+          <div class="dossier-pills">
+            <span class="dpill">Оспаривание завещаний</span>
+            <span class="dpill">Неправомерное давление</span>
+            <span class="dpill">Теория решений</span>
+          </div>
+        </div>
+
+        <div class="dossier-card">
+          <span class="dossier-ref">ДЕЛО // 04</span>
+          <h3>Уголовная вменяемость и смягчение вины</h3>
+          <p>Комплексные экспертизы способности предстать перед судом, состояния невменяемости в момент деяния и травмо-ориентированные заключения для защиты.</p>
+          <div class="dossier-pills">
+            <span class="dpill">Способность предстать перед судом</span>
+            <span class="dpill">Невменяемость</span>
+            <span class="dpill">Смягчение наказания</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scholarship" class="lecture-section">
+    <div class="container lecture-grid">
+      <div class="lecture-img-wrap">
+        <img src="../assets/real-stage-amsel.jpg" alt="Д-р Лоуренс Амсэль выступает на TEDx">
+      </div>
+      <div>
+        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.12em; color: var(--sage-bright); text-transform: uppercase; margin-bottom: 14px; display: block;">Научная методология</span>
+        <div class="quote-box">
+          «Психиатрические симптомы — это не случайные сбои, а математические аномалии принятия решений в условиях предельного стресса».
+        </div>
+        <p style="font-size: 16px; color: #D1D5DB; line-height: 1.65; margin-bottom: 28px;">
+          Исследования д-ра Амсэля по математической психиатрии привнесли строгую теорию игр в психологию. В зале суда этот академический статус вызывает у присяжных безусловное доверие к объективности эксперта.
+        </p>
+        <a href="#retainer" class="btn-green" style="background: var(--sage-bright); color: #07150E;">Запросить анализ дела</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="retainer">
+    <div class="container">
+      <div class="intake-box">
+        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--sage-accent); text-transform: uppercase;">Запрос адвоката</span>
+        <h2 style="font-family: var(--font-serif); font-size: 32px; color: var(--racing-green); margin: 6px 0 12px;">Проверка на отсутствие конфликта интересов</h2>
+        <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 28px;">
+          Адвокаты могут передать предварительные материалы спора под защитой доктрины адвокатской тайны (Attorney Work-Product). Личное рассмотрение д-ром Амсэлем.
+        </p>
+
+        <form onsubmit="event.preventDefault(); alert('Материалы приняты кабинетом д-ра Амсэля.');">
+          <div class="intake-form-grid">
+            <input type="text" class="intake-input" placeholder="Имя адвоката и бюро *" required>
+            <input type="email" class="intake-input" placeholder="Рабочий email *" required>
+            <input type="text" class="intake-input" placeholder="Суд и юрисдикция *" required>
+            <select class="intake-input" required>
+              <option value="" disabled selected>Процессуальная роль...</option>
+              <option value="plaintiff">Истец</option>
+              <option value="defense">Ответчик / Защита</option>
+              <option value="criminal">Уголовное судопроизводство</option>
+            </select>
+          </div>
+          <textarea rows="3" class="intake-input" style="margin-bottom: 20px;" placeholder="Краткая фабула спора и вопросы эксперту..."></textarea>
+          <button type="submit" class="btn-green" style="width: 100%; padding: 15px; justify-content: center; font-size: 15px;">
+            Направить д-ру Амсэлю на проверку →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-flex">
+      <div><strong>Д-р Лоуренс Амсэль, M.D., M.P.H.</strong> — Кабинет: 245 W. 107th St., Нью-Йорк, США</div>
+      <div>Прямой телефон: +1 (917) 576-8172 · lamsel01@gmail.com</div>
+    </div>
+  </footer>
+
+</body>
+</html>

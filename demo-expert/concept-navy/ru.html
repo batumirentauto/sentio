@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кабинет д-ра Лоуренса Амсэля, M.D., M.P.H. | Судебная психиатрия и теория решений</title>
+  <style>
+    @font-face {
+      font-family: 'Prata';
+      src: url('../assets/prata-cyrillic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('../assets/manrope-cyrillic.woff2') format('woff2');
+    }
+
+    :root {
+      --bg-dark: #080B11;
+      --bg-card: #0F1420;
+      --gold: #D4AF37;
+      --gold-light: #F0D782;
+      --gold-glow: rgba(212, 175, 55, 0.15);
+      --border-gold: rgba(212, 175, 55, 0.2);
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-serif: 'Prata', Georgia, serif;
+      --font-sans: 'Manrope', sans-serif;
+      --max-w: 1240px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--bg-dark); color: var(--text-main); font-family: var(--font-sans); }
+    body { line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; transition: all 0.2s; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+    .top-strip {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: #05070B; padding: 10px 0; font-size: 12px;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted);
+    }
+    .top-flex { display: flex; justify-content: space-between; align-items: center; }
+    .gold-badge { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-light); font-weight: 600; }
+    .pulse-dot { width: 7px; height: 7px; background: #22C55E; border-radius: 50%; box-shadow: 0 0 8px #22C55E; }
+
+    .lang-btn {
+      background: rgba(212, 175, 55, 0.1); border: 1px solid var(--border-gold);
+      padding: 3px 10px; border-radius: 20px; font-size: 11px;
+    }
+    .lang-btn a { color: var(--text-muted); }
+    .lang-btn a.active { color: var(--gold-light); font-weight: 700; }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8, 11, 17, 0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-gold); padding: 22px 0;
+    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .seal-wrap { display: flex; align-items: center; gap: 14px; }
+    .seal-icon {
+      width: 38px; height: 38px; border: 1px solid var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-size: 16px; color: var(--gold);
+      box-shadow: 0 0 12px var(--gold-glow);
+    }
+    .seal-title { font-family: var(--font-serif); font-size: 20px; color: #FFF; }
+    .seal-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); }
+
+    .nav-menu { display: flex; gap: 32px; font-size: 14px; font-weight: 500; color: var(--text-muted); }
+    .nav-menu a:hover { color: var(--gold-light); }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+      color: #080B11; font-weight: 700; font-size: 13.5px;
+      padding: 12px 26px; border-radius: 2px;
+      border: 1px solid var(--gold-light);
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+      cursor: pointer;
+    }
+    .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: #FFF; font-weight: 500; font-size: 13.5px;
+      padding: 12px 26px; border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero {
+      position: relative; padding: 90px 0 80px;
+      background: radial-gradient(circle at 75% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: center; }
+    
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--gold); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+    .hero-title {
+      font-family: var(--font-serif); font-size: 54px; line-height: 1.12;
+      font-weight: 400; color: #FFF; margin-bottom: 24px;
+    }
+    .hero-title span { color: var(--gold); display: block; font-style: italic; }
+
+    .hero-p {
+      font-size: 17.5px; line-height: 1.7; color: var(--text-muted);
+      margin-bottom: 36px; max-width: 580px;
+    }
+    .hero-actions { display: flex; gap: 16px; margin-bottom: 48px; }
+
+    .hero-portrait-frame {
+      position: relative; padding: 10px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.05) 100%);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px var(--gold-glow);
+    }
+    .hero-portrait-frame img {
+      width: 100%; height: 520px; object-fit: cover; display: block;
+      filter: contrast(105%) brightness(95%);
+    }
+    .portrait-legend {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      background: rgba(8, 11, 17, 0.92);
+      border: 1px solid var(--border-gold);
+      padding: 14px 18px; backdrop-filter: blur(8px);
+    }
+    .legend-name { font-family: var(--font-serif); font-size: 17px; color: #FFF; }
+    .legend-sub { font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; }
+
+    .metrics {
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+      background: #0B0F19; padding: 40px 0;
+    }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .metric-box { border-left: 2px solid var(--gold); padding-left: 20px; }
+    .metric-num { font-family: var(--font-serif); font-size: 38px; color: var(--gold-light); line-height: 1; margin-bottom: 6px; }
+    .metric-caption { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+    section { padding: 100px 0; }
+    .section-header { max-width: 680px; margin-bottom: 60px; }
+    .section-header h2 { font-family: var(--font-serif); font-size: 40px; color: #FFF; margin-bottom: 16px; }
+    .section-header p { font-size: 16px; color: var(--text-muted); }
+
+    .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .dark-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 44px 38px; position: relative; transition: all 0.25s ease;
+    }
+    .dark-card:hover {
+      border-color: var(--gold); transform: translateY(-3px);
+      box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--gold-glow);
+    }
+    .card-idx { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 14px; display: block; }
+    .dark-card h3 { font-family: var(--font-serif); font-size: 24px; color: #FFF; margin-bottom: 14px; }
+    .dark-card p { font-size: 15px; color: var(--text-muted); line-height: 1.65; margin-bottom: 22px; }
+    .gold-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .gtag {
+      font-size: 11.5px; padding: 4px 10px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      background: rgba(212, 175, 55, 0.04);
+      color: var(--gold-light); letter-spacing: 0.02em;
+    }
+
+    .authority-sec { background: #05070B; border-top: 1px solid var(--border-gold); border-bottom: 1px solid var(--border-gold); }
+    .authority-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+    .stage-wrap {
+      border: 1px solid var(--border-gold); padding: 10px; background: #0F1420;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    }
+    .stage-wrap img { width: 100%; height: 560px; object-fit: cover; display: block; }
+
+    .calc-box {
+      background: var(--bg-card); border: 1px solid var(--border-gold);
+      padding: 44px; margin-top: 60px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+    .calc-title { font-family: var(--font-serif); font-size: 26px; color: #FFF; margin-bottom: 8px; }
+    .calc-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; }
+    .calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px; }
+    .calc-field label { display: block; font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px; font-weight: 600; }
+    .calc-field select, .calc-field input {
+      width: 100%; background: #080B11; border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #FFF; padding: 12px 14px; font-family: var(--font-sans); font-size: 14px;
+    }
+    .calc-field select:focus, .calc-field input:focus { outline: none; border-color: var(--gold); }
+
+    footer { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; font-size: 13px; color: var(--text-muted); background: #05070B; }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .authority-grid, .practice-grid, .calc-row { grid-template-columns: 1fr; gap: 36px; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size: 38px; }
+      .nav-menu { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-strip">
+    <div class="container top-flex">
+      <div>КАБИНЕТ Д-РА ЛОУРЕНСА АМСЭЛЯ · ПРОФЕССОР КОЛУМБИЙСКОГО УНИВЕРСИТЕТА</div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span class="gold-badge"><span class="pulse-dot"></span> Приём поручений на 2026/2027 гг.</span>
+        <div class="lang-btn">
+          <a href="index.html">EN</a> / <a href="ru.html" class="active">RU</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav-flex">
+      <div class="seal-wrap">
+        <div class="seal-icon">LA</div>
+        <div>
+          <div class="seal-title">Д-р Лоуренс Амсэль</div>
+          <div class="seal-sub">Судебная психиатрия и поведенческая теория решений</div>
+        </div>
+      </div>
+      <nav class="nav-menu">
+        <a href="#practice">Направления</a>
+        <a href="#testimony">Судебный вес</a>
+        <a href="#simulator">Запрос адвоката</a>
+      </nav>
+      <a href="#simulator" class="btn-gold">Проверить конфликт интересов</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-eyebrow">Судебная экспертиза в федеральных судах США · Манхэттен</div>
+        <h1 class="hero-title">
+          Объективная психиатрия.
+          <span>Несокрушима при перекрестном допросе.</span>
+        </h1>
+        <p class="hero-p">
+          Привлечение ведущими судебными коллегиями США. 28+ лет синтеза опыта руководства службой помощи 11 сентября, академической медицины в Колумбийском университете и математической теории решений для неопровержимых судебных заключений.
+        </p>
+        <div class="hero-actions">
+          <a href="#simulator" class="btn-gold">Привлечь д-ра Амсэля</a>
+          <a href="#practice" class="btn-ghost">Спектр экспертиз</a>
+        </div>
+        <div style="font-size: 12.5px; color: var(--gold); letter-spacing: 0.05em; text-transform: uppercase;">
+          ★ Равный этический баланс привлечения со стороны истцов и защиты в судах США
+        </div>
+      </div>
+
+      <div class="hero-portrait-frame">
+        <img src="../assets/real-hero-amsel.jpg" alt="Д-р Лоуренс Амсэль, Колумбийский университет">
+        <div class="portrait-legend">
+          <div class="legend-name">Лоуренс Амсэль, M.D., M.P.H.</div>
+          <div class="legend-sub">Assistant Professor of Clinical Psychiatry · Columbia University</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="metrics">
+    <div class="container metrics-grid">
+      <div class="metric-box">
+        <div class="metric-num">28+</div>
+        <div class="metric-caption">Лет дачи судебных показаний и академической медицины</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">9/11</div>
+        <div class="metric-caption">Экс-соруководитель службы психологической травмы NYSPI</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">Yale & Columbia</div>
+        <div class="metric-caption">Степени доктора медицины и общественного здоровья Лиги Плюща</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">Daubert & Frye</div>
+        <div class="metric-caption">Рецензируемая методология, допустимая во всех юрисдикциях</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="practice">
+    <div class="container">
+      <div class="section-header">
+        <div class="hero-eyebrow">Области экспертизы</div>
+        <h2>Судебные поручения особой важности</h2>
+        <p>Независимые медицинские освидетельствования (IME), анализ причинно-следственной связи и дача свидетельских показаний в спорах с ценой вопроса в десятки миллионов долларов.</p>
+      </div>
+
+      <div class="practice-grid">
+        <div class="dark-card">
+          <span class="card-idx">01 // КАТАСТРОФИЧЕСКИЕ ТРАВМЫ</span>
+          <h3>ПТСР и последствия масштабных катастроф</h3>
+          <p>Научная фиксация тяжелых расстройств после терактов, производственных аварий или насилия. Специализированные протоколы объективного выявления симуляции (malingering).</p>
+          <div class="gold-tags">
+            <span class="gtag">Критерии DSM-5-TR</span>
+            <span class="gtag">Выявление симуляции</span>
+            <span class="gtag">Спасатели 11 сентября</span>
+          </div>
+        </div>
+
+        <div class="dark-card">
+          <span class="card-idx">02 // ОТВЕТСТВЕННОСТЬ КЛИНИК</span>
+          <h3>Врачебные ошибки в психиатрии и суицидология</h3>
+          <p>Оценка дефектов клинических стандартов стационаров, ненадлежащего фармакотерапевтического лечения, иски о смерти по неосторожности при суицидах пациентов.</p>
+          <div class="gold-tags">
+            <span class="gtag">Суицидология</span>
+            <span class="gtag">Стандарты стационаров</span>
+            <span class="gtag">Врачебная халатность</span>
+          </div>
+        </div>
+
+        <div class="dark-card">
+          <span class="card-idx">03 // ТЕОРИЯ РЕШЕНИЙ</span>
+          <h3>Завещательная дееспособность и давление</h3>
+          <p>Применение математической теории игр и поведенческой экономики к оценке когнитивной сделкоспособности и неправомерного влияния (undue influence) в наследственных спорах.</p>
+          <div class="gold-tags">
+            <span class="gtag">Неправомерное давление</span>
+            <span class="gtag">Сделкоспособность</span>
+            <span class="gtag">Теория игр</span>
+          </div>
+        </div>
+
+        <div class="dark-card">
+          <span class="card-idx">04 // УГОЛОВНЫЙ ПРОЦЕСС</span>
+          <h3>Вменяемость и смягчение наказания</h3>
+          <p>Оценка способности предстать перед судом (competency to stand trial), невменяемости в момент инкриминируемого деяния и травмо-ориентированные заключения для защиты.</p>
+          <div class="gold-tags">
+            <span class="gtag">Способность предстать перед судом</span>
+            <span class="gtag">Невменяемость</span>
+            <span class="gtag">Смягчение вины</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimony" class="authority-sec">
+    <div class="container authority-grid">
+      <div class="stage-wrap">
+        <img src="../assets/real-stage-amsel.jpg" alt="Д-р Лоуренс Амсэль выступает на TEDx">
+      </div>
+      <div>
+        <div class="hero-eyebrow">Академический авторитет</div>
+        <h2 style="font-family: var(--font-serif); font-size: 38px; color: #FFF; margin-bottom: 20px;">
+          Создатель математической психиатрии решений
+        </h2>
+        <p style="color: var(--text-muted); font-size: 16.5px; line-height: 1.7; margin-bottom: 28px;">
+          Будучи первопроходцем в применении науки о принятии решений, теории игр и поведенческой экономики к психиатрии, д-р Амсэль объединил точную математику с клиническим анализом человека.
+        </p>
+        <p style="color: var(--text-muted); font-size: 16px; line-height: 1.7; margin-bottom: 32px;">
+          В судебном заседании этот статус дает присяжным и судьям полную уверенность в том, что перед ними строгая объективная наука, а не ангажированное мнение наемного эксперта.
+        </p>
+        <a href="#simulator" class="btn-gold">Обсудить материалы дела</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulator">
+    <div class="container">
+      <div class="calc-box">
+        <div class="calc-title">Конфиденциальная форма запроса адвоката</div>
+        <div class="calc-sub">Направление материалов защищено доктриной адвокатской тайны (Attorney-Client Work Product). Проверяется д-ром Амсэлем лично.</div>
+        
+        <form onsubmit="event.preventDefault(); alert('Запрос направлен в кабинет д-ра Амсэля.');">
+          <div class="calc-row">
+            <div class="calc-field">
+              <label>Имя адвоката / Бюро</label>
+              <input type="text" placeholder="например, Vance & Sterling LLP" required>
+            </div>
+            <div class="calc-field">
+              <label>Email адвоката</label>
+              <input type="email" placeholder="attorney@lawfirm.com" required>
+            </div>
+            <div class="calc-field">
+              <label>Суд / Юрисдикция</label>
+              <input type="text" placeholder="например, S.D.N.Y. / N.Y. Supreme" required>
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-field">
+              <label>Категория дела</label>
+              <select required>
+                <option value="" disabled selected>Выберите категорию...</option>
+                <option value="catastrophic">ПТСР / Катастрофический вред здоровью</option>
+                <option value="malpractice">Врачебная ошибка / Суицид в клинике</option>
+                <option value="capacity">Оспаривание завещания / Дееспособность</option>
+                <option value="criminal">Уголовный процесс / Вменяемость</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Сторона в процессе</label>
+              <select required>
+                <option value="plaintiff">Истец</option>
+                <option value="defense">Ответчик / Защита</option>
+                <option value="court">Назначение судом</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Ожидаемая дата суда</label>
+              <input type="text" placeholder="например, Осень 2026">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px; font-weight: 600;">Краткая фабула спора</label>
+            <textarea rows="3" style="width: 100%; background: #080B11; border: 1px solid rgba(212, 175, 55, 0.3); color: #FFF; padding: 12px 14px; font-family: var(--font-sans); font-size: 14px;" placeholder="Ключевые медицинские вопросы и статус медицинской документации..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold" style="width: 100%; padding: 16px; font-size: 15px;">
+            Направить на экспресс-проверку конфликта интересов
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-flex">
+      <div><strong>Кабинет д-ра Лоуренса Амсэля, M.D., M.P.H.</strong> — Манхэттен: 245 W. 107th St., New York, NY 10025</div>
+      <div>Прямой телефон: +1 (917) 576-8172 · lamsel01@gmail.com</div>
+    </div>
+  </footer>
+
+</body>
+</html>

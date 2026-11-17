@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chambers of Lawrence Amsel, M.D., M.P.H. | Forensic Psychiatry & Decision Science</title>
+  <meta name="description" content="Columbia University Faculty Forensic Psychiatrist. 28+ years providing unshakeable Daubert-standard testimony in high-stakes civil and federal litigation.">
+  <style>
+    @font-face {
+      font-family: 'Prata';
+      src: url('../assets/prata-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('../assets/manrope-latin.woff2') format('woff2');
+    }
+
+    :root {
+      --bg-dark: #080B11;
+      --bg-card: #0F1420;
+      --bg-card-hover: #151C2C;
+      --gold: #D4AF37;
+      --gold-light: #F0D782;
+      --gold-glow: rgba(212, 175, 55, 0.15);
+      --border-gold: rgba(212, 175, 55, 0.2);
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-serif: 'Prata', Georgia, serif;
+      --font-sans: 'Manrope', sans-serif;
+      --max-w: 1240px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--bg-dark); color: var(--text-main); font-family: var(--font-sans); }
+    body { line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; transition: all 0.2s; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+    /* Top Bar */
+    .top-strip {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: #05070B;
+      padding: 10px 0;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .top-flex { display: flex; justify-content: space-between; align-items: center; }
+    .gold-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--gold-light); font-weight: 600;
+    }
+    .pulse-dot { width: 7px; height: 7px; background: #22C55E; border-radius: 50%; box-shadow: 0 0 8px #22C55E; }
+
+    .lang-btn {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border-gold);
+      padding: 3px 10px; border-radius: 20px; font-size: 11px;
+    }
+    .lang-btn a { color: var(--text-muted); }
+    .lang-btn a.active { color: var(--gold-light); font-weight: 700; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8, 11, 17, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 22px 0;
+    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .seal-wrap { display: flex; align-items: center; gap: 14px; }
+    .seal-icon {
+      width: 38px; height: 38px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 16px; color: var(--gold);
+      box-shadow: 0 0 12px var(--gold-glow);
+    }
+    .seal-title { font-family: var(--font-serif); font-size: 20px; letter-spacing: 0.02em; color: #FFF; }
+    .seal-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); }
+
+    .nav-menu { display: flex; gap: 32px; font-size: 14px; font-weight: 500; color: var(--text-muted); }
+    .nav-menu a:hover { color: var(--gold-light); }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+      color: #080B11; font-weight: 700; font-size: 13.5px;
+      padding: 12px 26px; border-radius: 2px; letter-spacing: 0.04em;
+      border: 1px solid var(--gold-light);
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+      cursor: pointer;
+    }
+    .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: #FFF; font-weight: 500; font-size: 13.5px;
+      padding: 12px 26px; border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Hero */
+    .hero {
+      position: relative; padding: 90px 0 80px;
+      background: radial-gradient(circle at 75% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: center; }
+    
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--gold); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+    .hero-title {
+      font-family: var(--font-serif); font-size: 58px; line-height: 1.1;
+      font-weight: 400; color: #FFF; margin-bottom: 24px;
+    }
+    .hero-title span { color: var(--gold); display: block; font-style: italic; }
+
+    .hero-p {
+      font-size: 18px; line-height: 1.7; color: var(--text-muted);
+      margin-bottom: 36px; max-width: 580px;
+    }
+    .hero-actions { display: flex; gap: 16px; margin-bottom: 48px; }
+
+    /* Hero Portrait in Gold Bezel */
+    .hero-portrait-frame {
+      position: relative; padding: 10px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.05) 100%);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px var(--gold-glow);
+    }
+    .hero-portrait-frame img {
+      width: 100%; height: 520px; object-fit: cover; display: block;
+      filter: contrast(105%) brightness(95%);
+    }
+    .portrait-legend {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      background: rgba(8, 11, 17, 0.92);
+      border: 1px solid var(--border-gold);
+      padding: 14px 18px; backdrop-filter: blur(8px);
+    }
+    .legend-name { font-family: var(--font-serif); font-size: 17px; color: #FFF; }
+    .legend-sub { font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.08em; }
+
+    /* Metrics Bar */
+    .metrics {
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+      background: #0B0F19; padding: 40px 0;
+    }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .metric-box { border-left: 2px solid var(--gold); padding-left: 20px; }
+    .metric-num { font-family: var(--font-serif); font-size: 38px; color: var(--gold-light); line-height: 1; margin-bottom: 6px; }
+    .metric-caption { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+    /* Section Styles */
+    section { padding: 100px 0; }
+    .section-header { max-width: 680px; margin-bottom: 60px; }
+    .section-header h2 { font-family: var(--font-serif); font-size: 42px; color: #FFF; margin-bottom: 16px; }
+    .section-header p { font-size: 16px; color: var(--text-muted); }
+
+    /* Practice Cards */
+    .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .dark-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 44px 38px; position: relative;
+      transition: all 0.25s ease;
+    }
+    .dark-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--gold-glow);
+    }
+    .card-idx { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.12em; margin-bottom: 14px; display: block; }
+    .dark-card h3 { font-family: var(--font-serif); font-size: 24px; color: #FFF; margin-bottom: 14px; }
+    .dark-card p { font-size: 15px; color: var(--text-muted); line-height: 1.65; margin-bottom: 22px; }
+    .gold-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .gtag {
+      font-size: 11.5px; padding: 4px 10px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      background: rgba(212, 175, 55, 0.04);
+      color: var(--gold-light); letter-spacing: 0.03em;
+    }
+
+    /* TEDx / Authority Split */
+    .authority-sec { background: #05070B; border-top: 1px solid var(--border-gold); border-bottom: 1px solid var(--border-gold); }
+    .authority-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+    .stage-wrap {
+      border: 1px solid var(--border-gold); padding: 10px; background: #0F1420;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    }
+    .stage-wrap img { width: 100%; height: 560px; object-fit: cover; display: block; }
+
+    /* Interactive Feasibility Tool */
+    .calc-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      padding: 44px; margin-top: 60px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+    .calc-title { font-family: var(--font-serif); font-size: 26px; color: #FFF; margin-bottom: 8px; }
+    .calc-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; }
+    .calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px; }
+    .calc-field label { display: block; font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 8px; font-weight: 600; }
+    .calc-field select, .calc-field input {
+      width: 100%; background: #080B11; border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #FFF; padding: 12px 14px; font-family: var(--font-sans); font-size: 14px;
+    }
+    .calc-field select:focus, .calc-field input:focus { outline: none; border-color: var(--gold); }
+
+    /* Footer */
+    footer { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; font-size: 13px; color: var(--text-muted); background: #05070B; }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .authority-grid, .practice-grid, .calc-row { grid-template-columns: 1fr; gap: 36px; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size: 40px; }
+      .nav-menu { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Strip -->
+  <div class="top-strip">
+    <div class="container top-flex">
+      <div>CHAMBERS OF LAWRENCE AMSEL, M.D., M.P.H. · COLUMBIA UNIVERSITY FACULTY</div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span class="gold-badge"><span class="pulse-dot"></span> Accepting 2026/2027 Retainers</span>
+        <div class="lang-btn">
+          <a href="index.html" class="active">EN</a> / <a href="ru.html">RU</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-flex">
+      <div class="seal-wrap">
+        <div class="seal-icon">LA</div>
+        <div>
+          <div class="seal-title">Dr. Lawrence Amsel</div>
+          <div class="seal-sub">Forensic Psychiatry & Behavioral Decision Science</div>
+        </div>
+      </div>
+      <nav class="nav-menu">
+        <a href="#practice">Specialties</a>
+        <a href="#testimony">Trial Track Record</a>
+        <a href="#simulator">Counsel Intake</a>
+      </nav>
+      <a href="#simulator" class="btn-gold">Request Conflict Check</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-eyebrow">Federal & State Expert Testimony · Manhattan Chambers</div>
+        <h1 class="hero-title">
+          Objective psychiatric science.
+          <span>Unshakeable under cross-examination.</span>
+        </h1>
+        <p class="hero-p">
+          Retained by premier litigation teams nationwide. 28+ years combining frontline 9/11 trauma leadership, academic medicine at Columbia University, and mathematical decision theory to deliver bulletproof Daubert-standard testimony.
+        </p>
+        <div class="hero-actions">
+          <a href="#simulator" class="btn-gold">Retain Dr. Amsel</a>
+          <a href="#practice" class="btn-ghost">Review Practice Scope</a>
+        </div>
+        <div style="font-size: 12.5px; color: var(--gold); letter-spacing: 0.05em; text-transform: uppercase;">
+          ★ Balanced retention history across Plaintiff & Defense Counsel in Federal Courts
+        </div>
+      </div>
+
+      <div class="hero-portrait-frame">
+        <img src="../assets/real-hero-amsel.jpg" alt="Dr. Lawrence Amsel, Columbia University Faculty">
+        <div class="portrait-legend">
+          <div class="legend-name">Lawrence Amsel, M.D., M.P.H.</div>
+          <div class="legend-sub">Assistant Professor of Clinical Psychiatry · Columbia University</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Strip -->
+  <div class="metrics">
+    <div class="container metrics-grid">
+      <div class="metric-box">
+        <div class="metric-num">28+</div>
+        <div class="metric-caption">Years of courtroom evaluations and academic medicine</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">9/11</div>
+        <div class="metric-caption">Former Co-Director, Trauma Studies & Services Division, NYSPI</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">Yale & Columbia</div>
+        <div class="metric-caption">Dual Ivy League medical doctorate & public health degrees</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-num">Daubert & Frye</div>
+        <div class="metric-caption">Peer-reviewed empirical methodology admissible in all jurisdictions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Practice Areas -->
+  <section id="practice">
+    <div class="container">
+      <div class="section-header">
+        <div class="hero-eyebrow">Practice Areas</div>
+        <h2>High-Stakes Forensic Retainers</h2>
+        <p>Providing independent medical evaluations (IMEs), objective causality assessments, and trial testimony where psychiatric precision determines multi-million dollar outcomes.</p>
+      </div>
+
+      <div class="practice-grid">
+        <div class="dark-card">
+          <span class="card-idx">01 // CATASTROPHIC HARM</span>
+          <h3>PTSD & Industrial Trauma</h3>
+          <p>Scientific quantification of profound psychological trauma following mass casualty incidents, corporate disasters, or assault. Specialized protocols for distinguishing genuine distress from malingering.</p>
+          <div class="gold-tags">
+            <span class="gtag">DSM-5-TR Verification</span>
+            <span class="gtag">Malingering Analysis</span>
+            <span class="gtag">9/11 Responders</span>
+          </div>
+        </div>
+
+        <div class="dark-card">
+          <span class="card-idx">02 // INSTITUTIONAL LIABILITY</span>
+          <h3>Psychiatric Malpractice & Inpatient Suicide</h3>
+          <p>Evaluating clinical deviations from accepted psychiatric standards of care, pharmacotherapy mismanagement, suicide risk assessments, and hospital failure-to-protect liability.</p>
+          <div class="gold-tags">
+            <span class="gtag">Inpatient Suicidology</span>
+            <span class="gtag">Wrongful Death</span>
+            <span class="gtag">Standards of Care</span>
+          </div>
+        </div>
+
+        <div class="dark-card">
+          <span class="card-idx">03 // DECISION SCIENCE</span>
+          <h3>Testamentary Capacity & Undue Influence</h3>
+          <p>Applying formal Game Theory and Behavioral Economics to retrospective mental competence, high-stakes will contests, and vulnerability to financial coercion.</p>
+          <div class="gold-tags">
+            <span class="gtag">Undue Influence</span>
+            <span class="gtag">Contractual Capacity</span>
+            <span class="gtag">Game Theory Modeling</span>
+          </div>
+        </div>
+
+        <div class="dark-card">
+          <span class="card-idx">04 // CRIMINAL LITIGATION</span>
+          <h3>Competency, Sanity & Mitigation</h3>
+          <p>Evaluating competency to stand trial, sanity at the time of the act, and neuro-psychiatric mitigation evidence for federal and state criminal proceedings.</p>
+          <div class="gold-tags">
+            <span class="gtag">Competency to Stand Trial</span>
+            <span class="gtag">Insanity Defense</span>
+            <span class="gtag">Mitigation Reports</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Authority Split with Real TEDx Photo -->
+  <section id="testimony" class="authority-sec">
+    <div class="container authority-grid">
+      <div class="stage-wrap">
+        <img src="../assets/real-stage-amsel.jpg" alt="Dr. Lawrence Amsel lecturing on Mathematical Psychiatry at TEDx">
+      </div>
+      <div>
+        <div class="hero-eyebrow">Academic Gravitas</div>
+        <h2 style="font-family: var(--font-serif); font-size: 38px; color: #FFF; margin-bottom: 20px;">
+          Pioneering the Mathematics of Psychiatric Decisions
+        </h2>
+        <p style="color: var(--text-muted); font-size: 16.5px; line-height: 1.7; margin-bottom: 28px;">
+          As an early champion of applying Decision Science, Game Theory, and Behavioral Economics to psychiatric research, Dr. Amsel's landmark work bridges formal mathematics with human clinical behavior.
+        </p>
+        <p style="color: var(--text-muted); font-size: 16px; line-height: 1.7; margin-bottom: 32px;">
+          When retained, this academic prestige gives juries and judges absolute confidence that Dr. Amsel's opinions represent objective scientific truth rather than partisan advocacy.
+        </p>
+        <a href="#simulator" class="btn-gold">Consult on Pending Matter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Counsel Intake Simulator -->
+  <section id="simulator">
+    <div class="container">
+      <div class="calc-box">
+        <div class="calc-title">Confidential Counsel Intake & Conflict Screening</div>
+        <div class="calc-sub">Attorneys may submit preliminary matter parameters. Screened directly by Dr. Amsel under the Attorney-Client Work Product doctrine.</div>
+        
+        <form onsubmit="event.preventDefault(); alert('Inquiry submitted directly to Dr. Amsel\'s chambers.');">
+          <div class="calc-row">
+            <div class="calc-field">
+              <label>Retaining Counsel Name</label>
+              <input type="text" placeholder="e.g. Vance & Sterling LLP" required>
+            </div>
+            <div class="calc-field">
+              <label>Counsel Email</label>
+              <input type="email" placeholder="attorney@lawfirm.com" required>
+            </div>
+            <div class="calc-field">
+              <label>Jurisdiction / Court</label>
+              <input type="text" placeholder="e.g. S.D.N.Y. / 2nd Circuit" required>
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-field">
+              <label>Matter Category</label>
+              <select required>
+                <option value="" disabled selected>Select category...</option>
+                <option value="catastrophic">PTSD / Catastrophic Injury</option>
+                <option value="malpractice">Psychiatric Malpractice / Suicide</option>
+                <option value="capacity">Testamentary Capacity / Will Contest</option>
+                <option value="criminal">Criminal Competency / Mitigation</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Representation</label>
+              <select required>
+                <option value="plaintiff">Plaintiff Counsel</option>
+                <option value="defense">Defense Counsel</option>
+                <option value="court">Court Appointed / Special Master</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Estimated Trial Date</label>
+              <input type="text" placeholder="e.g. Q3 2026 / Pending">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 8px; font-weight: 600;">Brief Case Summary</label>
+            <textarea rows="3" style="width: 100%; background: #080B11; border: 1px solid rgba(212, 175, 55, 0.3); color: #FFF; padding: 12px 14px; font-family: var(--font-sans); font-size: 14px;" placeholder="Outline the primary psychiatric questions and status of discovery records..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold" style="width: 100%; padding: 16px; font-size: 15px;">
+            Submit for Expedited Conflict Check & Review
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-flex">
+      <div><strong>Chambers of Lawrence Amsel, M.D., M.P.H.</strong> — Manhattan Office: 245 W. 107th St., New York, NY 10025</div>
+      <div>Direct: (917) 576-8172 · lamsel01@gmail.com</div>
+    </div>
+  </footer>
+
+</body>
+</html>

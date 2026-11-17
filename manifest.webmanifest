@@ -1,0 +1,12 @@
+{
+  "name": "SENTIO — ИИ для психолога в Telegram",
+  "short_name": "SENTIO",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f2",
+  "theme_color": "#73162b",
+  "lang": "ru-RU",
+  "icons": [
+    {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}
+  ]
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Host: sentioagents.ru
+Sitemap: https://sentioagents.ru/sitemap.xml

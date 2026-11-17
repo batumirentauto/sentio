@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lawrence Amsel, M.D., M.P.H. | Forensic Psychiatric Practice & Monograph</title>
+  <style>
+    @font-face {
+      font-family: 'Prata';
+      src: url('../assets/prata-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('../assets/manrope-latin.woff2') format('woff2');
+    }
+
+    :root {
+      --bg-cashmere: #FAF7F2;
+      --bg-white: #FFFFFF;
+      --espresso: #1A1513;
+      --cognac: #9E4527;
+      --cognac-soft: #D97E5D;
+      --text-muted: #5E5550;
+      --border-subtle: rgba(26, 21, 19, 0.09);
+      --font-serif: 'Prata', Georgia, serif;
+      --font-sans: 'Manrope', sans-serif;
+      --max-w: 1200px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--bg-cashmere); color: var(--espresso); font-family: var(--font-sans); }
+    body { line-height: 1.65; font-size: 16px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+    /* Top Curatorial Bar */
+    .curator-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 0; font-size: 11.5px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .curator-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    /* Header */
+    header {
+      background: rgba(250, 247, 242, 0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 26px 0; position: sticky; top: 0; z-index: 100;
+    }
+    .header-grid { display: flex; justify-content: space-between; align-items: center; }
+    .brand-title {
+      font-family: var(--font-serif); font-size: 24px; font-weight: 400;
+      letter-spacing: -0.01em; color: var(--espresso);
+    }
+    .brand-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cognac); }
+
+    .nav-links { display: flex; gap: 36px; font-size: 14px; font-weight: 500; color: var(--text-muted); }
+    .nav-links a:hover { color: var(--cognac); }
+
+    .btn-cognac {
+      background: var(--cognac); color: #FFF;
+      padding: 11px 24px; border-radius: 2px; font-size: 13.5px;
+      font-weight: 600; letter-spacing: 0.04em;
+      transition: all 0.2s; display: inline-flex; align-items: center;
+    }
+    .btn-cognac:hover { background: #7F341C; }
+
+    /* Centered Museum Hero */
+    .hero {
+      padding: 90px 0 80px; text-align: center;
+    }
+    .hero-pre {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.16em; color: var(--cognac); margin-bottom: 22px;
+      display: inline-block;
+    }
+    .hero-h1 {
+      font-family: var(--font-serif); font-size: 64px; line-height: 1.1;
+      font-weight: 400; color: var(--espresso); margin-bottom: 24px;
+      max-width: 960px; margin-left: auto; margin-right: auto;
+    }
+    .hero-h1 span { font-style: italic; color: var(--cognac); font-weight: 400; }
+    .hero-p {
+      font-size: 19px; line-height: 1.7; color: var(--text-muted);
+      max-width: 660px; margin: 0 auto 40px;
+    }
+
+    /* Curatorial Framed Visual */
+    .curator-visual-wrap {
+      max-width: 1040px; margin: 0 auto 40px;
+      background: #FFF; padding: 24px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 25px 60px -20px rgba(26, 21, 19, 0.08);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center;
+      text-align: left;
+    }
+    .curator-visual-wrap img {
+      width: 100%; height: 500px; object-fit: cover; display: block;
+    }
+    .curator-card-body h3 {
+      font-family: var(--font-serif); font-size: 32px; line-height: 1.2;
+      color: var(--espresso); margin-bottom: 16px;
+    }
+    .curator-card-body p {
+      font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px;
+    }
+    .curator-plate-no {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--cognac); text-transform: uppercase; margin-bottom: 12px; display: block;
+    }
+
+    /* 3 Pillars */
+    section { padding: 90px 0; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .pillar {
+      border-top: 1px solid var(--espresso); padding-top: 24px;
+    }
+    .pillar-no { font-family: var(--font-serif); font-size: 28px; color: var(--cognac); margin-bottom: 8px; }
+    .pillar h4 { font-family: var(--font-serif); font-size: 22px; color: var(--espresso); margin-bottom: 12px; }
+    .pillar p { font-size: 15px; color: var(--text-muted); line-height: 1.65; }
+
+    /* The Helix Portrait Section */
+    .monograph-sec {
+      background: #FFF; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+    }
+    .monograph-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+    .monograph-img-box {
+      border: 1px solid var(--border-subtle); padding: 16px; background: var(--bg-cashmere);
+    }
+    .monograph-img-box img { width: 100%; height: 540px; object-fit: cover; display: block; }
+
+    /* Clean Counsel Box */
+    .inquiry-box {
+      background: #FFF; border: 1px solid var(--border-subtle);
+      padding: 56px; max-width: 860px; margin: 0 auto;
+      box-shadow: 0 15px 40px -10px rgba(26, 21, 19, 0.05);
+    }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .c-input {
+      width: 100%; padding: 13px 15px; background: var(--bg-cashmere);
+      border: 1px solid var(--border-subtle); font-family: var(--font-sans); font-size: 14.5px;
+      color: var(--espresso);
+    }
+    .c-input:focus { outline: none; border-color: var(--cognac); background: #FFF; }
+
+    footer {
+      border-top: 1px solid var(--border-subtle); padding: 40px 0;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 900px) {
+      .curator-visual-wrap, .monograph-grid, .pillars-grid, .form-grid-2 { grid-template-columns: 1fr; gap: 32px; }
+      .hero-h1 { font-size: 40px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Curatorial Bar -->
+  <div class="curator-bar">
+    <div class="container curator-flex">
+      <div>COLUMBIA UNIVERSITY VAGELOS COLLEGE OF PHYSICIANS & SURGEONS · FACULTY PRACTICE</div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <span style="color: var(--cognac); font-weight: 600;">Direct Chambers Retention</span>
+        <span style="font-size: 11px;">
+          <a href="index.html" style="color: var(--cognac); font-weight: 700;">EN</a> / <a href="ru.html" style="color: var(--text-muted);">RU</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-grid">
+      <div>
+        <div class="brand-title">Lawrence Amsel, M.D., M.P.H.</div>
+        <div class="brand-sub">Forensic Psychiatry & Behavioral Decision Science</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#monograph">Monograph</a>
+        <a href="#specialties">Areas of Counsel</a>
+        <a href="#inquiry">Conflict Screening</a>
+      </nav>
+      <a href="#inquiry" class="btn-cognac">Request Case Feasibility</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-pre">Forensic Psychiatric Practice · New York</span>
+      <h1 class="hero-h1">
+        Where clinical rigor meets <span>the discipline of law.</span>
+      </h1>
+      <p class="hero-p">
+        Independent evaluations, Daubert-admissible reporting, and expert witness testimony informed by 28+ years of academic medicine at Columbia and frontline 9/11 disaster psychiatry.
+      </p>
+
+      <!-- Centerpiece Visual -->
+      <div class="curator-visual-wrap">
+        <img src="../assets/real-hero-amsel.jpg" alt="Dr. Lawrence Amsel, Columbia University Faculty">
+        <div class="curator-card-body">
+          <span class="curator-plate-no">PLATE 01 // PRINCIPAL EXAMINER</span>
+          <h3>Dr. Lawrence Amsel</h3>
+          <p>
+            Assistant Professor of Clinical Psychiatry at Columbia University. Medical doctorate from Yale School of Medicine. Former Co-Director of the Trauma Studies and Services Division at the New York State Psychiatric Institute.
+          </p>
+          <div style="border-left: 2px solid var(--cognac); padding-left: 14px; font-style: italic; color: var(--espresso); font-size: 14.5px;">
+            "Expert testimony must never be an exercise in advocacy. It must be an exercise in peer-reviewed scientific truth."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Pillars -->
+  <section id="specialties" style="border-top: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <span class="hero-pre">Forensic Architecture</span>
+        <h2 style="font-family: var(--font-serif); font-size: 40px; color: var(--espresso);">The Three Pillars of Retention</h2>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-no">01</div>
+          <h4>Catastrophic Trauma & PTSD</h4>
+          <p>Scientific documentation of psychological injury, complicated grief, and industrial trauma. Meticulous differentiation of genuine pathology from malingering.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-no">02</div>
+          <h4>Institutional Liability & Suicide</h4>
+          <p>Analyzing clinical causality, hospital adherence to psychiatric standards of care, psychopharmacology errors, and failure-to-protect inpatient wrongful death claims.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-no">03</div>
+          <h4>Decision Theory & Capacity</h4>
+          <p>Pioneering the application of Game Theory and Behavioral Economics to testamentary capacity, undue influence, and retrospective financial competence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Helix Monograph Split -->
+  <section id="monograph" class="monograph-sec">
+    <div class="container monograph-grid">
+      <div class="monograph-img-box">
+        <img src="../assets/amsel-helix.jpg" alt="Dr. Lawrence Amsel, The Helix Center New York">
+      </div>
+      <div>
+        <span class="hero-pre">The Intellectual Record</span>
+        <h2 style="font-family: var(--font-serif); font-size: 38px; color: var(--espresso); margin-bottom: 20px;">
+          The Science of Choice Under Pressure
+        </h2>
+        <p style="font-size: 16.5px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px;">
+          Beyond traditional clinical psychiatry, Dr. Amsel's landmark work models how trauma, depression, and severe psychiatric disorders mathematically alter human decision-making and risk calculation.
+        </p>
+        <p style="font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px;">
+          In high-stakes courtroom proceedings, this gives litigators a decisive advantage: opinions built on formal decision science that juries instinctively comprehend and trust.
+        </p>
+        <a href="#inquiry" class="btn-cognac">Inquire with Chambers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiries -->
+  <section id="inquiry">
+    <div class="container">
+      <div class="inquiry-box">
+        <div style="text-align: center; margin-bottom: 36px;">
+          <span class="hero-pre">Direct Chambers Intake</span>
+          <h2 style="font-family: var(--font-serif); font-size: 34px; color: var(--espresso); margin-bottom: 8px;">Confidential Matter Evaluation</h2>
+          <p style="font-size: 15px; color: var(--text-muted);">
+            Attorneys may transmit preliminary case facts for conflict checks under the Attorney-Client Work Product doctrine.
+          </p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Inquiry received. Reviewed personally by Dr. Amsel.');">
+          <div class="form-grid-2">
+            <input type="text" class="c-input" placeholder="Retaining Counsel & Firm *" required>
+            <input type="email" class="c-input" placeholder="Counsel Email Address *" required>
+            <input type="text" class="c-input" placeholder="Jurisdiction & Court *" required>
+            <select class="c-input" required>
+              <option value="" disabled selected>Representation Side...</option>
+              <option value="plaintiff">Plaintiff Counsel</option>
+              <option value="defense">Defense Counsel</option>
+              <option value="criminal">Criminal Defense / Prosecution</option>
+            </select>
+          </div>
+          <textarea rows="3" class="c-input" style="margin-bottom: 24px;" placeholder="Brief synopsis of primary psychiatric issues and records readiness..."></textarea>
+          <button type="submit" class="btn-cognac" style="width: 100%; padding: 15px; justify-content: center; font-size: 15px;">
+            Submit Matter to Dr. Amsel for Conflict Check →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-flex">
+      <div><strong>Lawrence Amsel, M.D., M.P.H.</strong> — Manhattan Chambers: 245 W. 107th St., New York, NY 10025</div>
+      <div>Direct: (917) 576-8172 · lamsel01@gmail.com</div>
+    </div>
+  </footer>
+
+</body>
+</html>
